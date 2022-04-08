@@ -44,10 +44,20 @@ $File.addEventListener('change', async function(e){
         
         let canvas = document.createElement('canvas');
 
-        canvas.width = 500; canvas.height = 750; 
+
+        if($Main.clientWidth > 575){
+            canvas.width = 500;
+            canvas.height = 750;
+        }
+        else {
+            canvas.width = $Main.clientWidth - 50;
+            canvas.height = ($Main.clientWidth - 50) / (2 / 3); 
+        }
+        
         canvas.classList.add('rounded-2');
         canvas.style.display = 'block'; 
         canvas.style.margin = 'auto';
+
 
         $Main.appendChild(canvas);
         
